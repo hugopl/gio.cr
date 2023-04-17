@@ -1,6 +1,6 @@
 ![Build Status](https://github.com/hugopl/gio.cr/actions/workflows/ci.yml/badge.svg?branch=main)
 
-# Pango.cr
+# Gio.cr
 
 Crystal bindings for [GIO](https://docs.gtk.org/gio/) library
 
