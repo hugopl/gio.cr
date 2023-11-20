@@ -6,5 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Changes that change the generated API have a ⚠️.
 
+## [0.2.0] 2023-11-20
+### Added
+- Compile GResources at runtime when not in release mode (#1).
+- Added overload using Int32 instead of UInt32 to ListModel#items_changed (#3).
+
+### Changed
+- Bump gi-crystal dependency.
+
 ## [0.1.0] 2023-04-16
-First release.
+- First release.
