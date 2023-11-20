@@ -3,6 +3,7 @@ version: "2.0"
 require_after:
 - application.cr
 - resource.cr
+- list_model
 
 types:
   AppLaunchContextPrivate:
