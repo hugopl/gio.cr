@@ -11,11 +11,7 @@ module Gio
   # See `examples/resource.cr` for more info.
   macro register_resource(resource_file, source_dir = ".")
     begin
-      {% if flag?(:debug) %}
-        `glib-compile-resources --sourcedir #{{{source_dir}}} --target crystal-gio-resource.gresource #{{{resource_file}}}`
-        %resource_data = File.read("crystal-gio-resource.gresource")
-        File.delete("crystal-gio-resource.gresource")
-      {% else %}
+      {% if flag?(:release) %}
       {%
         `glib-compile-resources --sourcedir #{source_dir} --target crystal-gio-resource.gresource #{resource_file}`
         data = read_file("crystal-gio-resource.gresource")
@@ -23,6 +19,10 @@ module Gio
         `rm crystal-gio-resource.gresource`
       %}
       %resource_data = {{ data }}
+      {% else %}
+        `glib-compile-resources --sourcedir #{{{source_dir}}} --target crystal-gio-resource.gresource #{{{resource_file}}}`
+        %resource_data = File.read("crystal-gio-resource.gresource")
+        File.delete("crystal-gio-resource.gresource")
       {% end %}
       %gbytes = LibGLib.g_bytes_new_static(%resource_data, %resource_data.bytesize)
       %error = Pointer(LibGLib::Error).null
