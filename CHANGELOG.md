@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Changes that change the generated API have a ⚠️.
 
+## [0.2.2] 2023-12-05
+### Changed
+- Changed overload ListModel#items_changed to use Int as type restriction instead of Int32.
+
 ## [0.2.1] 2023-11-28
 ### Fixed
 - Compile resources at compile time when in release mode.
